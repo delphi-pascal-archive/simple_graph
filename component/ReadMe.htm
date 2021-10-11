@@ -1,0 +1,1731 @@
+<HTML>
+<HEAD>
+<TITLE>ReadMe</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="5" CELLPADDING="5" BGCOLOR="#660000">
+  <TR> 
+    <TD> 
+      <DIV ALIGN="CENTER"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="6" COLOR="#FFFFFF"><B>TSimpleGraph 
+        v1.542</B></FONT></DIV>
+    </TD>
+  </TR>
+</TABLE>
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Copyright &copy; 
+  <A HREF="mailto:delphiarea.com">Kambiz R. Khojasteh</A>. All rights reserved.<BR>
+  Get future component updates from <A HREF="http://www.delphiarea.com">http://www.delphiarea.com</A>.<BR>
+  </FONT></P>
+<TABLE BORDER="1" CELLSPACING="2" CELLPADDING="5" BORDERCOLOR="#FFFFFF" ALIGN="LEFT">
+  <TR BGCOLOR="#333333" ALIGN="CENTER" VALIGN="MIDDLE"> 
+    <TD NOWRAP><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Delphi 
+      4</FONT></B></TD>
+    <TD NOWRAP><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Delphi 
+      5</FONT></B></TD>
+    <TD NOWRAP><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Delphi 
+      6</FONT></B></TD>
+    <TD NOWRAP><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Delphi 
+      7</FONT></B></TD>
+  </TR>
+</TABLE>
+<P><BR>
+  <BR>
+</P>
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="4"><B><A NAME="DESCRIPTION"></A><BR>
+  DESCRIPTION</B></FONT></P>
+<P> 
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">TSimpleGraph is 
+  a visual component, which provides a simple user interface for drawing simple 
+  graphs/digraphs. User can draw nodes (vertices) on the control's client area 
+  and link them together (graph's edges or arcs) by either keyboard or mouse. 
+  Currently the component supports three different shapes for the nodes, however 
+  the new shapes can be added. The component is fully customizable and has methods 
+  for supporting Delphi's clipboard and printer objects.</FONT></P>
+<P></P>
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="INTERFACE"></A><BR>
+  <FONT SIZE="4">INTERFACE</FONT></B></FONT></P>
+<UL>
+  <LI><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="3">Classes</FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    <BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="6">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE" WIDTH="825"> <FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TSimpleGraph"></A>TSimpleGraph 
+          = class(TCustomControl)<BR>
+          </B>TSimpleGraph is a windowed control that provides a canvas for drawing 
+          a graph. It also manages relation between graph objects and the application.</FONT> 
+          <P> 
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Properties</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="CommandMode"></A>CommandMode: 
+                  TGraphCommandMode<BR>
+                  TGraphCommandMode = (cmViewOnly, cmEdit, cmInsertNode, cmLinkNodes)</B></FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+                  Determines which kind of commands are available to the user.</FONT> 
+                </P>
+                <TABLE WIDTH="90%" BORDER="0" CELLSPACING="5" CELLPADDING="0" ALIGN="CENTER">
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>cmViewOnly</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">The 
+                      user cannot modify the graph</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>cmEdit</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">The 
+                      user can move, resize, and delete the nodes. The use also 
+                      can change the end points and delete the links.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>cmInsertNode</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+                      The user can insert a new node.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>cmLinkNodes</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">The 
+                      user can link two nodes.</FONT></TD>
+                  </TR>
+                </TABLE>
+                <BR>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="DefaultLinkClass"></A>DefaultLinkClass: 
+                <A HREF="#TGraphLinkClass">TGraphLinkClass</A> </B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><B><BR>
+                </B>Determines the class that should be used for a new link object.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>DefaultKeyMap: 
+                  Boolean<BR>
+                  </B>Indicates whether the control internally handle the keyboard 
+                  shortcuts entered by the user. See <A HREF="#KEY_MAPPING">Keyboard 
+                  Shortcuts</A> for the default key mapping.</FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="DefaultNodeClass"></A>DefaultNodeClass: 
+                <A HREF="#TGraphNodeClass">TGraphNodeClass</A> </B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><B><BR>
+                </B>Determines the class that should be used for a new node object.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="FreezeTopLeft"></A>FreezeTopLeft: 
+                Boolean</B><BR>
+                Indicates whether objects can move beyond top/left of the screen.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">GraphBounds: 
+                TRect </FONT></B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Specifies 
+                the smallest bounding rectangle of the all visible graph objects 
+                in graph's unit.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>GridColor: 
+                TColor</B><BR>
+                Determines the color of the grid.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="GridSize"></A>GridSize: 
+                TGridSize<BR>
+                TGridSize = 4..128<BR>
+                </B>Determines the grid spacing in graph's unit along the x- and 
+                y-axis.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><A NAME="HideSelection"></A><B>HideSelection: 
+                Boolean</B><BR>
+                Determines whether the visual indication of the selected grpah 
+                objects remains when focus shifts to another control.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>HorzScrollBar: 
+                  <A HREF="#TGraphScrollBar">TGraphScrollBar</A></B><BR>
+                  Represents the horizontal scroll bar for the scrolling the graph. 
+                  </FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>LockNodes: 
+                Boolean</B><BR>
+                Indicates whether the user can move or resize graph objects by 
+                mouse or keyboard.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Objects: 
+                <A HREF="#TGraphObjectList">TGraphObjectList</A><BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Contains 
+                the list of graph objects in the graph.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>ObjectPopupMenu: 
+                TPopupMenu</B><BR>
+                Identifies the pop-up menu associated with the graph's objects. 
+                </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>MarkerColor: 
+                  TColor</B><BR>
+                  Determines the color of the selection marker.</FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>MarkerSize: 
+                TMarkerSize</B><BR>
+                <B>TMarkerSize = 3..9</B><BR>
+                Determines the size of the selection marker in pixels.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="MinNodeSize"></A>MinNodeSize: 
+                Word</B><BR>
+                Specifies the minimum nodes' with and height in pixels.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Modified: 
+                Boolean</B><BR>
+                Indicates whether the graph is modified.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">SelectedObjects: 
+                <A HREF="#TGraphObjectList">TGraphObjectList</A><BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Contains 
+                the list of selected graph objects in the graph.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><A NAME="SelectionBounds"></A>SelectionBounds: 
+                TRect </FONT></B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Specifies 
+                the smallest bounding rectangle of the selected graph objects 
+                in graph's unit.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>ShowGrid: 
+                Boolean</B><BR>
+                Indicates whether the control shows dot grids on the designer.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>ShowHiddenObjects: 
+                Boolean</B><BR>
+                Indicates whether the control shows graph objects, which are not 
+                vissible.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="SnapToGrid"></A>SnapToGrid: 
+                Boolean</B><BR>
+                Indicates whether the control automatically aligns graph objects 
+                on the designer with the nearest gridline.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>VertScrollBar: 
+                <A HREF="#TGraphScrollBar">TGraphScrollBar</A></B><BR>
+                Represents the vertical scroll bar for the scrolling the graph. 
+                </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><A NAME="VisibleBounds"></A><B>VisibleBounds:</B><B> 
+                TRect </B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><BR>
+                Specifies the bounding rectangle of the visible part of the graph 
+                in graph's unit.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><A NAME="Zoom"></A><B>Zoom: 
+                TZoom</B><BR>
+                <B>TZoom = 10..1000</B><BR>
+                Specifies the control's zoom factor in percent.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><A NAME="ZoomMin"></A><B>ZoomMin: 
+                TZoom</B><BR>
+                Specifies the minimum permitted zoom factor.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><A NAME="ZoomMax"></A><B>ZoomMax: 
+                TZoom</B><BR>
+                Specifies the maximum permitted zoom factor.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><A NAME="ZoomStep"></A><B>ZoomStep: 
+                Byte</B><BR>
+                Determines the amount of changes in the zoom factor by using keyboard 
+                or mouse functions in each step.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Events</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>OnCanLinkNodes: 
+                TCanLinkNodesEvent;</B><BR>
+                <B>TCanLinkNodesEvent = procedure(Graph: TSimpleGraph; FromNode, 
+                ToNode: TGraphNode; var CanLink: Boolean) of object;</B><BR>
+                Occurs when an attempt is made to link two nodes together. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>OnCanMoveResizeNode: 
+                TCanMoveResizeNodeEvent;<BR>
+                TCanMoveResizeNodeEvent = procedure(Graph: TSimpleGraph; Node: 
+                TGraphNode; var NewLeft, NewTop, NewWidth, NewHeight: Integer; 
+                var CanMove, CanResize: Boolean) of object; <BR>
+                </B>Occurs when an attempt is made to resize or move a node.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>OnCommandModeChange: 
+                TNotifyEvent;</B><BR>
+                Occurs when <A HREF="#CommandMode">CommandMode</A> is changed.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>OnGraphChange: 
+                TNotifyEvent;</B><BR>
+                Occurs when the graph is changed.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>OnObjectContextPopup: 
+                TGraphContextPopupEvent;</B><BR>
+                <B>TGraphContextPopupEvent = procedure(Graph: TSimpleGraph; GraphObject: 
+                TGraphObject; const MousePos: TPoint; var Handled: Boolean) of 
+                object;<BR>
+                </B>Occurs when the user right-clicks on a graph object. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="OnObjectDblClick"></A>OnObjectDblClick: 
+                TGraphNotifyEvent;</B><BR>
+                <B>TGraphNotifyEvent = procedure(Graph: TSimpleGraph; GraphObject: 
+                TGraphObject) of object; </B><BR>
+                Occurs when the user double clicks on a graph object.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>OnObjectInsert: 
+                TGraphNotifyEvent;</B><BR>
+                <B>TGraphNotifyEvent = procedure(Graph: TSimpleGraph; GraphObject: 
+                TGraphObject) of object; </B><B><BR>
+                </B>Occurs when a new graph object added to the graph.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>OnObjectRemove: 
+                TGraphNotifyEvent;</B><BR>
+                <B>TGraphNotifyEvent = procedure(Graph: TSimpleGraph; GraphObject: 
+                TGraphObject) of object; </B><B><BR>
+                </B>Occurs when a graph object removed from the graph.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>OnObjectSelect: 
+                TGraphNotifyEvent;</B><BR>
+                <B>TGraphNotifyEvent = procedure(Graph: TSimpleGraph; GraphObject: 
+                TGraphObject) of object; </B><B><BR>
+                </B>Occurs when a graph object is selected/deselected in the graph.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Methods</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                BeginUpdate;</B><BR>
+                Suspends screen repainting. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                EndUpdate;</B><BR>
+                Re-enables screen repainting.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                Draw(Canvas: TCanvas); <BR>
+                </B>Draws the graph on the canvas in the actual size.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="Print"></A>procedure 
+                Print(Canvas: TCanvas; const Rect: TRect); <BR>
+                </B>Draws the graph on the canvas in the rectangle specified by 
+                the Rect parameter. The Print method maintains the original aspect 
+                ratio of the graph. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                ToggleNodesAt(const Rect: TRect; KeepOld: Boolean);<BR>
+                </B>Toggles the selection state of the in the given rectangle. 
+                When KeepOld is True, the function keeps the previous selected 
+                nodes as selected, otherwise it deselects them.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                FindObjectAt(X, Y: Integer; GraphObjectClass: <A HREF="#TGraphObjectClass">TGraphObjectClass</A> 
+                = nil): <A HREF="#TGraphObject">TGraphObject</A>;<BR>
+                </B>Returns the graph object that contains the specified point. 
+                If no graph object exists at the given point, the return value 
+                is nil. If GraphObjectClass parameter is not nil, the FindObjectAt 
+                function looks only for the graph object at that class type.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                InsertNode(pBounds: PRect = nil; ANodeClass: <A HREF="#TGraphNodeClass">TGraphNodeClass</A> 
+                = nil): <A HREF="#TGraphNode">TGraphNode</A>;<BR>
+                </B>Inserts a new node on the graph. If pBounds is not nil, the 
+                function initiates the node's bounds to the given rectangle. ANodeClass 
+                parameter specifies the node class type of the new node object. 
+                If ANodeClass is nil, the function creates the new node as <A HREF="#DefaultNodeClass">DefaultNodeClass</A>.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                LinkNodes(FromNode, ToNode: <A HREF="#TGraphNode">TGraphNode</A>; 
+                ALinkClass: <A HREF="#TGraphLinkClass">TGraphLinkClass</A> = nil): 
+                <A HREF="#TGraphLink">TGraphLink</A>;<BR>
+                </B>Links the nodes specifies by FromNode and ToNode parameters 
+                to each other. ALinkClass parameter specifies the link class type 
+                of the new link object. If ANodeClass is nil, the function creates 
+                the new node as <A HREF="#DefaultLinkClass">DefaultLinkClass</A>.<B> 
+                </B>If specified nodes cannot be linked together, function returns 
+                nil.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                IsValidLink(Link: <A HREF="#TGraphLink">TGraphLink</A>; FromNode, 
+                ToNode: <A HREF="#TGraphNode">TGraphNode</A>): Boolean;<BR>
+                </B>Checks whether the specified link is a valid link between 
+                two specified node objects. If Link parameter is nil, the function 
+                checks whether two nodes can be linked to each other.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                ScrollInView(GraphObject: <A HREF="#TGraphObject">TGraphObject</A>); 
+                overload;<BR>
+                procedure ScrollInView(const Rect: TRect); overload;<BR>
+                procedure ScrollInView(const Point: TPoint); overload;<BR>
+                </B>Scrolls a graph object, rectabgle, or point into the visible 
+                area of the control.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="ZoomRect"></A>function 
+                ZoomRect(const Rect: TRect): Boolean;</B><BR>
+                Zooms the view, so that the specified rectangle fits the client 
+                area of the control.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="ZoomObject"></A>function 
+                ZoomObject(GraphObject: TGraphObject): Boolean;</B><BR>
+                Zooms the view, so that the specified objects fit the client area 
+                of the control.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="ZoomSelection"></A>function 
+                ZoomSelection: Boolean;</B><BR>
+                Zooms the view, so that the selected objects fit the client area 
+                of the control.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="ZoomGraph"></A>function 
+                ZoomGraph: Boolean;</B><BR>
+                Zooms the view, so that the graph entirly fits the client area 
+                of the control.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="ClientToGraph"></A>function 
+                ClientToGraph(X, Y: Integer): TPoint;</B><BR>
+                Converts X and Y pair of values from the client coordinates to 
+                the graph cordinates.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="GraphToClient"></A>function 
+                GraphToClient(X, Y: Integer): TPoint;</B><BR>
+                Converts X and Y pair of values from the graph coordinates to 
+                the client cordinates.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">function 
+                  FindNextObject(StartIndex: Integer; Inclusive, Backward, Wrap: 
+                  Boolean; GraphObjectClass: <A HREF="#TGraphObjectClass">TGraphObjectClass</A> 
+                  = nil): <A HREF="#TGraphObject">TGraphObject</A>;<BR>
+                  </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Call 
+                  FindNextObject to search for a graph object as type specified 
+                  by the GraphObjectClass parameter. If the Inclusive parameter 
+                  is True, the graph object specified by StartIndex is the first 
+                  item checked. Otherwise, the search starts on the next object. 
+                  If the Wrap parameter is True, the search continues at the top 
+                  of z-order if a match has not been found before reaching the 
+                  bottom. If Backward is False, FindNextObject searches forward 
+                  through the graph objects in z-order, otherwise it searches 
+                  backward through the graph objects.</FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                SelectNextObject(Backward: Boolean; GraphObjectClass: <A HREF="#TGraphObjectClass">TGraphObjectClass</A> 
+                = nil): Boolean;<BR>
+                </B>Moves the selection to the next graph object as the specified 
+                type in the z-order.<B> </B>If Backward is False, SelectNextObject 
+                searches forward through the graph objects in z-order, otherwise 
+                it searches backward through the graph objects. If SelectNextObject 
+                doesn&#146;t locate an appropriate graph object, the current selection 
+                will be removed and the function returns False.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                ObjectsCount(GraphObjectClass: <A HREF="#TGraphObjectClass">TGraphObjectClass</A> 
+                = nil): Integer;<BR>
+                </B>Returns the number of graph objects as the specified type. 
+                </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                SelectedObjectsCount(GraphObjectClass: <A HREF="#TGraphObjectClass">TGraphObjectClass</A> 
+                = nil): Integer; <BR>
+                </B>Returns the number of selected graph objects as the specified 
+                type.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="SaveAsMetafile"></A>procedure 
+                SaveAsMetafile(const Filename: String);</B><BR>
+                Saves the graph to a file as Windows Metafile image.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                LoadFromStream(Stream: TStream);<BR>
+                </B>Loads a graph from a stream in to the control. This function 
+                clears the previous contents.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                SaveToStream(Stream: TStream);<BR>
+                </B>Saves the graph in to a stream.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                LoadFromFile(const Filename: String);<BR>
+                </B>Loads a graph from a file in to the control. This function 
+                clears the previous contents.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                SaveToFile(const Filename: String);<BR>
+                </B>Saves the graph to a file. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                CopyToClipboard(Selection: Boolean = True);<BR>
+                </B>Copies the selected graph objects to the Clipboard in CF_SIMPLEGRAPH 
+                format. When Selection parameter is False, the function copies 
+                all the graph objects to the Clipboard.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                PasteFromClipboard: Boolean; <BR>
+                </B>Pastes the contents of the clipboard into the control. If 
+                the Clipboard is empty, or if it does not contain anything in 
+                CF_SIMPLEGRAPH format, PasteFromClipboard does nothing.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                Clear;<BR>
+                </B>Removes all the graph objects from the control.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>class 
+                procedure Register(ANodeClass: <A HREF="#TGraphNodeClass">TGraphNodeClass</A>); 
+                overload;<BR>
+                class procedure Register(ALinkClass: <A HREF="#TGraphLinkClass">TGraphLinkClass</A>); 
+                overload;</B><BR>
+                Registers a node or link class type for being use in <A HREF="#TSimpleGraph">TSimpleGraph</A>.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>class 
+                procedure Unregister(ANodeClass: <A HREF="#TGraphNodeClass">TGraphNodeClass</A>); 
+                overload;<BR>
+                class procedure Unregister(ALinkClass: <A HREF="#TGraphLinkClass">TGraphLinkClass</A>); 
+                overload;</B><BR>
+                Unregisters a node or link class type from <A HREF="#TSimpleGraph">TSimpleGraph</A>. 
+                If an object class type is not registered, loading a graph that 
+                uses that kind of object fails.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">class 
+                function NodeClasses(Index: Integer): <A HREF="#TGraphNodeClass">TGraphNodeClass</A>;<BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Returns 
+                the node class type at the specified index.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">class 
+                function LinkClasses(Index: Integer): <A HREF="#TGraphLinkClass">TGraphLinkClass</A>;<BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Returns 
+                the link class type at the specified index.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>class 
+                function NodeClassCount: Integer;<BR>
+                </B>Returns the number of registered node class types.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>class 
+                function LinkClassCount: Integer;</B><BR>
+                Returns the number of registered link class types.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TGraphObjectList"></A>TGraphObjectList 
+            = class(TList)<BR>
+            </B>TGraphObjectList maintains the collection of graph objects that 
+            appear in a simple graph control. </FONT></P>
+          <P> 
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Properties</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif">Items[Index: 
+                  Integer]: <A HREF="#TGraphObject">TGraphObject</A></FONT></B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP><B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"> 
+                  </FONT></B>(Read-Only, Default)</SUP></FONT><B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><BR>
+                  </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Lists 
+                  all graph objects managed by the TGraphObjectList object.</FONT></P>
+              </TD>
+            </TR>
+          </TABLE>
+          <BR>
+        </TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TGraphObjectClass"></A>TGrephObjectClass 
+            = class of TGraphObject<BR>
+            <A NAME="TGraphObject"></A>TGraphObject = class(TPersistent) </B></FONT><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Abstract)</SUP></FONT><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><BR>
+            </B>TGraphObject is the common ancestor of all graph objects that 
+            can appear in the graph designer.</FONT></P>
+          <P></P>
+          <P> 
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Properties</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Brush: 
+                TBrush<BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Determines 
+                the color and pattern for filling the background of the graph 
+                object.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">BoundsRect: 
+                  TRect </FONT></B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><BR>
+                  </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Determines 
+                  the bounding rectangle of the graph object in the graph.</FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Font: 
+                TFont<BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Specifies 
+                the font to use when writing text on the graph object.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>IsLink: 
+                Boolean</B><B> </B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><BR>
+                Indicates whether the graph object is either a link or a node.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Owner: 
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A HREF="#TSimpleGraph">TSimpleGraph</A> 
+                </B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><BR>
+                Determines the owner of the graph object.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Pen: 
+                TPen<BR>
+                </B>Specifies the kind of pen the graph object uses for drawing 
+                lines and outlining shapes.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>ParentFont: 
+                Boolean<BR>
+                </B>Determines where the graph object looks for its font information. 
+                </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Selected: 
+                Boolean<BR>
+                </B>Indicates wheter the graph object is selected.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Showing: 
+                Boolean</B><B> </B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><BR>
+                Indicates whether the graph object is showing on the graph designer.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Tag: 
+                Integer<BR>
+                </B>Stores an integer value as part of the graph object. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Text: 
+                String<BR>
+                </B>Specifies a text string that identifies the graph object to 
+                the user. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Visible: 
+                Boolean</B> <BR>
+                Determines whether the graph object appears on the graph designer.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Methods</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+                <B>procedure Assign(Source: TPersistent); <BR>
+                </B>Copies the contents of another, similar graph object.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                ContainsPoint(X, Y: Integer): Boolean;<BR>
+                </B>Returns True if the graph objects containes the specified 
+                point.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+                ConvertTo(AnotherClass: TGraphObjectClass): Boolean; </B><BR>
+                Converts the graph object to another graph object type. If the 
+                graph object is a link, the new class type should be a link class, 
+                otherwise it should be a node class. The function returns True 
+                on success.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                BringToFront;<BR>
+                </B>Puts the graph object in front of all other graph objects.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                SendToBack; <BR>
+                </B>Puts the graph object behind all other graph objects.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                LoadFromStream(Stream: TStream);<BR>
+                </B>Loads the graph object from a stream.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+                SaveToStream(Stream: TStream); <BR>
+                </B>Saves the graph object in a stream.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TGraphLinkClass"></A>TGraphLinkClass 
+            = class of TGraphLink<BR>
+            <A NAME="TGraphLink"></A>TGraphLink = class(<A HREF="#TGraphObject">TGraphObject</A>)<BR>
+            </B>TGraphlink is the base class for all link objects on a graph.</FONT></P>
+          <P> 
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Properties</FONT></B></TD>
+            </TR>
+            <TR>
+              <TD COLSPAN="2"><A NAME="ArrowSize"></A><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>ArrowSize: 
+                TArrowSize<BR>
+                TArrowSize = 2..10</B><BR>
+                Determines the size of directed link's arrow.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif">FromNode: 
+                  <A HREF="#TGraphNode">TGraphNode</A><BR>
+                  </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Determines 
+                  the source node of the link.</FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif">ToNode: 
+                <A HREF="#TGraphNode">TGraphNode</A><BR>
+                </FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Determines 
+                the target node of the link.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="Kind"></A>Kind: 
+                  TLinkKind<BR>
+                  TLinkKind = (lkUndirected, lkDirected, lkBidirected)</B></FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+                  Determines kind of the link.</FONT> </P>
+                <TABLE WIDTH="90%" BORDER="0" CELLSPACING="5" CELLPADDING="0" ALIGN="CENTER">
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>lkUndirected</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">The 
+                      link has no direction.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>lkDirected</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">The 
+                      link is directed to one of the end-nodes.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>lkBidirected</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+                      The link is directed to the both end-nodes.</FONT></TD>
+                  </TR>
+                </TABLE>
+                <BR>
+              </TD>
+            </TR>
+          </TABLE>
+          <BR>
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Methods</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>procedure 
+                Reverse;<BR>
+                </B>Changes the direction of the link.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> <BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TGraphNodeClass"></A>TGraphNodeClass 
+            = class of TGraphNode<BR>
+            <A NAME="TGraphNode"></A>TGraphNode = class(<A HREF="#TGraphObject">TGraphObject</A>) 
+            </B></FONT><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Abstract)</SUP></FONT><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><BR>
+            </B>TGraphNode is the base class for all node objects on a graph.</FONT></P>
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Properties</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="Alignment"></A>Alignment: 
+                TAlignment</B><BR>
+                Controls the horizontal placement of the text within the node. 
+                </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="Margin"></A>Margin: 
+                Integer</B><BR>
+                Determines the margin of the text from edges of the node.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Left: 
+                  Integer<BR>
+                  </B>Specifies the X coordinate of the top left corner of the 
+                  node in graph's unit. </FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>Top: 
+                Integer </B><BR>
+                Specifies the Y coordinate of the top left corner of the node 
+                in graph's unit. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Width: 
+                Integer</B><BR>
+                Specifies the horizontal size of the node in graph's unit. </FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Height: 
+                  Integer</B><BR>
+                  Specifies the vertical size of the node in graph's unit. </FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="Background"></A>Background: 
+                TPicture</B><BR>
+                Determines the background image of the node.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Methods</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>procedure 
+                SetBounds(aLeft, aTop, aWidth, aHeight: Integer);<BR>
+                </B>Sets the Left, Top, Width, and Height properties all at once.</FONT></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><A NAME="LinkKindTo"></A>function 
+                  QueryLinkTo(Node: <A HREF="#TGraphNode">TGraphNode</A>): TQuaryLinkResult;<BR>
+                  TQuaryLinkResult = (qlrNone, qlrLinked, qlrLinkedIn, qlrLinkedOut, 
+                  qlrLinkedInOut) <BR>
+                  </B>Returns the type of the link between the node and another 
+                  node specified as parameter. </FONT></P>
+                <TABLE WIDTH="90%" BORDER="0" CELLSPACING="5" CELLPADDING="0" ALIGN="CENTER">
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>qlrNone</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">The 
+                      node is not linked to the specified node.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>qlrLinked</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">The 
+                      node is linked to the specified node, and the link is undirected.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>qlrLinkedIn</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+                      The node is linked to the specified node, and the caller 
+                      node is the terminal node of the link.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>qlrLinkedOut</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+                      The node is linked to the specified node, and the caller 
+                      node is the initial node of the link.</FONT></TD>
+                  </TR>
+                  <TR> 
+                    <TD WIDTH="15%" VALIGN="TOP"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>qlrLinkedInOut</B></FONT></TD>
+                    <TD WIDTH="20">&nbsp;</TD>
+                    <TD><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+                      The node is linked to the specified node, and the link is 
+                      bi-directional. </FONT></TD>
+                  </TR>
+                </TABLE>
+                <BR>
+              </TD>
+            </TR>
+          </TABLE>
+          <BR>
+        </TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TPolygonalNode"></A>TPolygonalNode 
+            = class(<A HREF="#TGraphNode">TGraphNode</A>) </B></FONT><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Abstract)</SUP></FONT><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><BR>
+            </B>TPolygonalNode is the base class for all polygon shape nodes. 
+            To define a new polygon shape node, subclass TPolygonalNode and override 
+            the DefineVertices class method. The verices of the polygon should 
+            be in clockwise order, and the first vertex should be at 12 O'clock.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TRectangularNode"></A>TRectangularNode 
+            = class(<A HREF="#TGraphNode">TGraphNode</A>)<BR>
+            </B>TRectangularNode reperesents a rectangle shape node.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TRoundRectangularNode"></A>TRoundRectangularNode 
+            = class(<A HREF="#TGraphNode">TGraphNode</A>)<BR>
+            </B>TRoundRectangularNode reperesents a round rectangle shape node.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TEllipticNode"></A>TEllipticNode 
+            = class(<A HREF="#TGraphNode">TGraphNode</A>)<BR>
+            </B>TEllipticNode reperesents an ellipse shape node.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> <BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TTriangularNode"></A>TTriangularNode 
+            = class(<A HREF="#TPolygonalNode">TPolygonalNode</A>)<BR>
+            </B>TTriangularNode reperesents an triangle shape node.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TRhomboidalNode"></A>TRhomboidalNode 
+            = class(<A HREF="#TPolygonalNode">TPolygonalNode</A>)<BR>
+            </B>TRhomboidalNode reperesents a rhomboid shape node.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TPentagonalNode"></A>TPentagonalNode 
+            = class(<A HREF="#TPolygonalNode">TPolygonalNode</A>)<BR>
+            </B>TPentagonalNode reperesents a pentagon shape node.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TGraphScrollBar"></A>TGraphScrollBar 
+            = class(TPersistent)<BR>
+            </B>TGraphScrollBar displays a horizontal or vertical scroll bar on 
+            the graph designer. Properties of TGraphScrollBar are similar to Delphi's 
+            TControlScrollBar.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> <BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="TMemoryHandleStream"></A>TMemoryHandleStream 
+            = class(TMemoryStream)<BR>
+            </B>TMemoryHandleStream is a stream that stores its data in dynamic 
+            memory allocated in the Windows global heap.<B> </B>It has all of 
+            properties and methods of its ancestor class, which is TMemoryStream. 
+            In addition, interface of this stream provides global handle of the 
+            allocated memory, which can be used in Windows API functions those 
+            need a handle to this handle.</FONT></P>
+          <P> 
+          <P> 
+          <P> 
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Properties</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> 
+                <P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Showing: 
+                  Boolean</B><B> </B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif" COLOR="#990000"><SUP>(Read-Only)</SUP></FONT><BR>
+                  Handle to global memory. </FONT></P>
+              </TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"> <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>ReleaseHandle: 
+                Boolean</B><BR>
+                Indicates whether the stream release the memory handle when it 
+                is no longer needed. If this property is set to False, it is your 
+                responsibility to release the handle by calling GlobalFree (Windows 
+                API). As default the value of this property is False.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+          <TABLE WIDTH="94%" BORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFFCC" ALIGN="CENTER">
+            <TR> 
+              <TD COLSPAN="2" BGCOLOR="#660000"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2" COLOR="#FFFFFF">Key 
+                Methods</FONT></B></TD>
+            </TR>
+            <TR> 
+              <TD COLSPAN="2"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>constructor 
+                Create(MemHandle: THandle);<BR>
+                </B>Creates to instantiate a TMemoryHandleStream object. Create 
+                initializes the stream using the MemHandle parameter. MemHandle 
+                parameter can be zero.</FONT></TD>
+            </TR>
+          </TABLE>
+          <BR>
+        </TD>
+      </TR>
+    </TABLE>
+    <B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT></B> <BR>
+  </LI>
+  <LI><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="3">Global Procedures</FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    <BR>
+    </FONT></B> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>function 
+            IsBetween(Value: Integer; Bound1, Bound2: Integer): Boolean;<BR>
+            </B>If the value specified by the Value parameter is between two values 
+            specified by Bound1 and Bound2, the function returnes True, otherwise 
+            it returns False.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"> 
+          <P><FONT SIZE="2" FACE="Verdana, Arial, Helvetica, sans-serif"><B>function 
+            TransformRgn(Rgn: HRGN; const XForm: TXForm): HRGN;<BR>
+            </B>Returns a copy of region specified by the Rgn parameter, which 
+            is transformed by the transform matrix specified by the XForm parameter.</FONT></P>
+        </TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+          TransformPoints(var Points: array of TPoint; const XForm: TXForm);<BR>
+          </B>Transforms points specified by the Points parameter with the transform 
+          marix specifies by the XForm parameter.</FONT></TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+          RotatePoints(var Points: array of TPoint; const Angle: Extended; const 
+          Org: TPoint);<BR>
+          </B>Rotates points specified by the Points parameter across a point 
+          specified by the Org parameter. The amount of rotation specifies by 
+          the Angle parameter in radians.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>procedure 
+          OffsetPoints(var Points: array of TPoint; dX, dY: Integer);<BR>
+          </B>Moves the specified points by the specified offsets.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> <BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          CenterOfPoints(var Points: array of TPoint): TPoint;<BR>
+          </B>Returns the center point of the specified points.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          BoundsRectOfPoints(var Points: array of TPoint): TRect;<BR>
+          </B>Returns the bounding rectangle of the specified points.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          MakeRect(const Corner1, Corner2: TPoint): TRect;<BR>
+          </B>Returns a rectangle that is reperesented by its two corner points.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          CenterOfRect(const Rect: TRect): TPoint;<BR>
+          </B>Returns the center point of the rectangle specified by Rect parameter.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          LineSlopeAngle(const LinePt1, LinePt2: TPoint): Extended;<BR>
+          </B>Returns the slope angle of the line that pass through the points 
+          specified by LinePt1 and LinePt2 parameters.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          DistanceToLine(const LinePt1, LinePt2, QueryPt: TPoint): Integer;<BR>
+          </B>Returns the distance of a point specified by QuaryPt parameter from 
+          the line that pass through the points specified by LinePt1 and LinePt2 
+          parameters.</FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          NextPointOfLine(const LineAngle: Extended; const ThisPoint: TPoint; 
+          Distance: Integer): TPoint;<BR>
+          </B>Returns the cordinates of the point, which is on a line reperesented 
+          by LineAngle and ThisPoint parameters. The distance of the returned 
+          point from the point specified by ThisPoint parameter, is specified 
+          by Distance parameter.</FONT></TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          IntersectLines(const Line1Pt: TPoint; const Line1Angle: Extended; const 
+          Line2Pt: TPoint; const Line2Angle: Extended; out Intersect: TPoint): 
+          Boolean ;<BR>
+          </B>If the two specified lines intersect each other, the function returns 
+          True and sets the Intersect parameter to the intersection point. Otherwise, 
+          the function returns False.</FONT></TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          IntersectLineRect(const LineAngle: Extended; const Bounds: TRect; Backward: 
+          Boolean): TPoint;<BR>
+          </B>Retruns the intersection cordinate of a rectangle specified by the 
+          Bounds parameter with a line that pass through center of the rectangle 
+          with an angle specified by LineAngle parameter in radians. Because there 
+          are two intersection points, use Backward parameter to specify your 
+          desired one. </FONT></TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          IntersectLineRoundRect(const LineAngle: Extended; const Bounds: TRect; 
+          Backward: Boolean; Rgn: HRgn): TPoint;<BR>
+          </B>Retruns the intersection cordinate of a round rectangle specified 
+          by Bounds and Rgn parameters with a line that pass through center of 
+          the round rectangle with an angle specified by LineAngle parameter in 
+          radians. Because there are two intersection points, use Backward parameter 
+          to specify your desired one. </FONT></TD>
+      </TR>
+    </TABLE>
+    <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    </FONT> 
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          IntersectLineEllipse(const LineAngle: Extended; const Bounds: TRect; 
+          Backward: Boolean): TPoint;<BR>
+          </B>Retruns the intersection cordinate of an ellipse specified by the 
+          Bounds parameter with a line that pass through center of the ellipse 
+          with an angle specified by LineAngle parameter in radians. Because there 
+          are two intersection points, use Backward parameter to specify your 
+          desired one. </FONT></TD>
+      </TR>
+    </TABLE>
+    <BR>
+    <TABLE WIDTH="90%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+      <TR> 
+        <TD WIDTH="15">&nbsp;</TD>
+        <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>function 
+          IntersectLinePolygon(const LineAngle: Extended; const Vertices: array 
+          of TPoint; Backward: Boolean): TPoint;<BR>
+          </B>Retruns the intersection cordinate of a polygon specified by its 
+          vertices with a line that pass through center of the polygon with an 
+          angle specified by LineAngle parameter in radians. Because there are 
+          at least two intersection points, use Backward parameter to specify 
+          your desired one. The verices of the polygon should be in clockwise 
+          order, and the first vertex should be at 12 O'clock.</FONT></TD>
+      </TR>
+    </TABLE>
+  </LI>
+</UL>
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="KEY_MAPPING"></A><BR>
+  <FONT SIZE="4">KEYBOARD SHORTCUTS</FONT></B></FONT></P>
+<UL>
+  <TABLE WIDTH="90%" BORDER="0" CELLSPACING="1" CELLPADDING="5">
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Key</FONT></B></TD>
+      <TD BGCOLOR="#EEEEEE"><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Function</FONT></B></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Left</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        the selected objects to the left by the number of graph's units specified 
+        by the <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Right</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        the selected objects to the right by the number of graph's units specified 
+        by the <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Up</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        up the selected objects by the number of graph's units specified by the 
+        <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Down</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        down the selected objects by the number of graph's units specified by 
+        the <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+Left</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        the selected objects to the left by one graph's unit. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+Right</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        the selected objects to the right by one graph's unit.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+Up</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        up the selected objects by one graph's unit.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+Down</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Moves 
+        down the selected objects by one graph's unit.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Left</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Decreases 
+        width of the selected objects by the number of graph's units specified 
+        by the <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Right</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Increases 
+        the width of the selected objects by the number of graph's units specified 
+        by the <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Up</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Decreases 
+        the height of the selected objects by the number of graph's units specified 
+        by the <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Down</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Increases 
+        the height of the selected objects by the number of graph's units specified 
+        by the <A HREF="#GridSize">GridSize</A> property. </FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Ctrl+Left</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Decreases 
+        width of the selected objects by one graph's unit.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Ctrl+Right</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Increases 
+        width of the selected objects by one graph's unit.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Ctrl+Up</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Decreases 
+        height of the selected objects by one graph's unit.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Ctrl+Down</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Increases 
+        height of the selected objects by one graph's unit.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Del</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Deletes 
+        the selected objects.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Enter</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Fires 
+        the <A HREF="#OnObjectDblClick">OnObjectDblClick</A> event for each selected 
+        object (= mouse double click).</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Esc</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Deselects 
+        the selected objects.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ins</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Inserts 
+        a new node.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+Ins</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Links 
+        selected nodes together.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Tab</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Selects 
+        the next node.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Tab</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Selects 
+        the prior node.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+Tab</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Selects 
+        the next link.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Ctrl+Tab</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Selects 
+        the prior link.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+X</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Cuts 
+        the selected objects in the Clipboard.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+C</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Copies 
+        the selected objects in the Clipboard.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+V</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Pastes 
+        the Clipboard's Contents in the graph.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">NumPad 
+        Plus</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Increases 
+        the zoom factor by <A HREF="#ZoomStep">ZoomStep</A> value (= mouse wheel 
+        up).</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">NumPad 
+        Minus</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Decreases 
+        the zoom factor by <A HREF="#ZoomStep">ZoomStep</A> value (= mouse wheel 
+        down).</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Ctrl+Drag</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">While 
+        dragging the mouse, regardless of the <A HREF="#SnapToGrid">SnapToGrid</A> 
+        settings, the control doesn't snap the target point to the grid.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Shift+Click</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">While 
+        selecting/deselecting objects by mouse, keeps the old selection.</FONT></TD>
+    </TR>
+    <TR> 
+      <TD WIDTH="15">&nbsp;</TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Alt+Drag</FONT></TD>
+      <TD BGCOLOR="#EEEEEE"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Zooms 
+        the rectangle that is selected by mouse.</FONT></TD>
+    </TR>
+  </TABLE>
+</UL>
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="HISTORY"></A><BR>
+  <FONT SIZE="4">HISTORY</FONT></B></FONT></P>
+<UL>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.542 
+    (August 24, 2004)<BR>
+    </B>- The black border that was appearing during scroll is fixed.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.541 
+    (August 20, 2004)<BR>
+    </B>- The bug in calculating the scroll bars' range fixed.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.54 
+    (August 6, 2004)<BR>
+    </B>- The new property <A HREF="#MinNodeSize">MinNodeSize</A> added to <A HREF="#TSimpleGraph">TSimpleGraph</A>.<B><BR>
+    </B>- The new property <A HREF="#ArrowSize">ArrowSize</A> added to <A HREF="#TGraphLink">TGraphLink</A>.<B><BR>
+    </B>- Some minor tweaks.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.531 
+    (August 4, 2004)<BR>
+    </B>- The bug regarding to <A HREF="#FreezeTopLeft">FreezeTopLeft</A> property 
+    fixed.<BR>
+    </FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.53 
+    (August 4, 2004)<BR>
+    </B>- The bug in moving/resizing overlapped objects fixed.<BR>
+    - The new property <A HREF="#FreezeTopLeft">FreezeTopLeft</A> added to <A HREF="#TSimpleGraph">TSimpleGraph</A>.</FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.52 
+    (July 18, 2004)<BR>
+    </B>- The scrolling malfunction when the zoom was greater than %100, fixed.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.51 
+    (June 28, 2004)<BR>
+    </B>- A minor bug fixed.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.50 
+    (June 22, 2004)<BR>
+    </B>- <A HREF="#VisibleBounds">VisibleBounds</A> property added to <A HREF="#TSimpleGraph">TSimpleGraph</A>. 
+    <BR>
+    - The new abstract class <A HREF="#TPolygonalNode">TPolygonalNode</A> introduced.<BR>
+    - <A HREF="#TTriangularNode">Triangular</A>, <A HREF="#TRhomboidalNode">Rhomboidal</A>, 
+    and <A HREF="#TPentagonalNode">pentagonal</A> nodes defined.<BR>
+    - Some new global functions added.<BR>
+    - Some speed improvements.<BR>
+    <B><BR>
+    Version 1.211 (June 18, 2004)<BR>
+    </B>- The compiler error on Delphi 4 fixed. <BR>
+    <B><BR>
+    Version 1.21 (June 13, 2004)<BR>
+    </B>- The new property <A HREF="#SelectionBounds">SelectionBounds</A> added. 
+    <BR>
+    - The new methods <A HREF="#ZoomRect">ZoomRect</A>, <A HREF="#ZoomObject">ZoomObject</A>, 
+    <A HREF="#ZoomSelection">ZoomSelection</A>, and <A HREF="#ZoomGraph">ZoomGraph</A> 
+    added.<BR>
+    - The missing method <A HREF="#GraphToClient">GraphToClient</A> added.<BR>
+    - Some minor tweaks.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.20 
+    (June 12, 2004)<BR>
+    </B>- Zooming ability, and consequently <A HREF="#Zoom">Zoom</A>, <A HREF="#ZoomMin">ZoomMin</A>, 
+    <A HREF="#ZoomMax">ZoomMax</A> and <A HREF="#ZoomStep">ZoomStep</A> properties 
+    added to the control. <B><BR>
+    </B>- The new <A HREF="#ClientToGraph">ClientToGraph</A> method added.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.10 
+    (May 16, 2004)<BR>
+    </B>- The new property <A HREF="#Kind">Kind</A> added to <A HREF="#TGraphLink">TGraphLink</A>.<B><BR>
+    </B>- LinkTypeTo method of <A HREF="#TGraphNode">TGraphNode</A> renamed to 
+    <A HREF="#QuaryLinkTo">QueryLinkTo</A>, and also the functionality improved.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.09 
+    (May 9, 2004)<BR>
+    </B>- Some bugs were fixed.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.08 
+    (May 10, 2003)<BR>
+    </B>- The division by zero exception raised in calculating the distance of 
+    a point from a line was fixed.<B><BR>
+    <BR>
+    </B></FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B> Version 
+    1.07 (April 27, 2003)<BR>
+    </B>- The new property <A HREF="#Background">Background</A> added to <A HREF="#TGraphNode">TGraphNode</A>.<BR>
+    <BR>
+    </FONT></LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.06 
+    (April 23, 2003)<BR>
+    </B></FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">- The 
+    PaintTo method removed and instead of that two methods <A HREF="#Print">Print</A> 
+    and <A HREF="#SaveAsMetafile">SaveAsMetafile</A> added to <A HREF="#TSimpleGraph">TSimpleGraph</A>.<BR>
+    - The new property <A HREF="#HideSelection">HideSelection</A> added to <A HREF="#TSimpleGraph">TSimpleGraph</A>.<BR>
+    <BR>
+    </FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 
+    1.05 (April 21, 2003)<BR>
+    </B></FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">- The 
+    new properties <A HREF="#Alignment">Alignment</A> and <A HREF="#Margin">Margin</A> 
+    were added to <A HREF="#TGraphNode">TGraphNode</A>.<BR>
+    <BR>
+    </FONT> </LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.04 
+    (April 21, 2003)<BR>
+    </B></FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">- Modified 
+    to publish on public domain.<BR>
+    <BR>
+    </FONT> </LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.03 
+    (August 27, 2000)<BR>
+    </B>- The problem of finding the intersection of line and round rectangle 
+    was fixed.<BR>
+    <BR>
+    </FONT> </LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.02 
+    (August 22, 2000)<BR>
+    </B>- The bug in movement of links was fixed.<B><BR>
+    <BR>
+    </B></FONT> </LI>
+  <LI><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><B>Version 1.01 
+    (July 01, 2000)<BR>
+    </B>- The wrong behavior of the control when nodes are locked was fixed.<B><BR>
+    <BR>
+    </B></FONT> </LI>
+  <LI><B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Version 1.00 
+    (June 11, 2000)</FONT></B><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"><BR>
+    - Initial release.</FONT> </LI>
+</UL>
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="ACKNOWLEDGMENT"></A><BR>
+  <FONT SIZE="4">ACKNOWLEDGMENT</FONT></B></FONT></P>
+<P> 
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">Special thanks 
+  to:</FONT></P>
+<UL>
+  <LI><A HREF="mailto:w2m@netheaven.com"><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+    Bill Miller</FONT></A><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+    - <A HREF="http://www.software.adirondack.ny.us">http://www.software.adirondack.ny.us</A></FONT></LI>
+</UL>
+<P> 
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="LICENSE"></A><BR>
+  <FONT SIZE="4">LICENSE</FONT></B></FONT></P>
+<P> 
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">TSimpleGraph component 
+  is freeware. You may copy component's files AS LONG AS YOU COPY ALL OF THEM. 
+  If you want to change the source code in order to improve the component's features, 
+  performance, etc. please send me the new source code so that I can have a look 
+  at it. The changed source code should contain descriptions what you have changed, 
+  and of course your name. The only thing you MAY NOT CHANGE is the ORIGINAL COPYRIGHT 
+  INFORMATION. </FONT></P>
+<P></P>
+<P><FONT FACE="Verdana, Arial, Helvetica, sans-serif"><B><A NAME="DISCLAIMER"></A><BR>
+  </B> <B> <FONT SIZE="4">DISCLAIMER</FONT></B></FONT></P>
+<P> <FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2">TSimpleGraph</FONT><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="2"> 
+  component is provided &quot;AS IS&quot; without any warranty of any kind, either 
+  express or implied. The entire risk as to the quality and performance of the 
+  software is with you. The author is NOT liable for any DAMAGES resulting from 
+  the use and misuse of the component, especially he is NOT liable for DAMAGES 
+  that were caused BY ANY VERSION WHICH HAS NOT BEEN PROGRAMMED BY THE AUTHOR 
+  HIMSELF.</FONT></P>
+<BR>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR> 
+    <TD WIDTH="100%"> 
+      <HR NOSHADE>
+    </TD>
+    <TD NOWRAP><FONT FACE="Verdana, Arial, Helvetica, sans-serif" SIZE="1"><SUP>&nbsp;END 
+      OF DOCUMENT</SUP></FONT></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
